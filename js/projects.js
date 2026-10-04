@@ -1,9 +1,9 @@
-// Everything personal lives in this file. Edit it, push, and the site updates.
+﻿// Everything personal lives in this file. Edit it, push, and the site updates.
 window.SITE = {
   name: "Sumit Goswami",
   github: "Sumit200531",
-  linkedin: "https://www.linkedin.com/in/sumit-goswami-123",
-  email: "", // put your real email here, e.g. "sumit@example.com". Leave empty to hide it.
+  linkedin: "https://www.linkedin.com/in/sumit-goswami-b92361325/",
+  email: "goswamisumit9001@gmail.com", // put your real email here, e.g. "sumit@example.com". Leave empty to hide it.
   resume: "", // optional link to a PDF, e.g. "assets/resume.pdf"
   // repos listed here are hidden from the "Also on GitHub" list
   hideRepos: ["Sumit200531", "2305110100057", "JAva_test_clone"]
