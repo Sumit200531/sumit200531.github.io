@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sumit Goswami — software for the places people lose time</title>
+<meta name="description" content="Sumit Goswami: full stack and backend developer. ClauseLens, QueueSense, an API gateway, a 3D galaxy and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top"><i></i>Sumit Goswami</a>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#more">GitHub</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" style="padding:0">
+      <div>
+        <h1>Sumit<span>Goswami</span></h1>
+        <p class="say">I build software for the places people lose time: the hospital queue, the insurance clause, the letter nobody can read.</p>
+        <p class="who">B.Tech CSE student working across full stack and backend, with a lot of retrieval and LLM work lately. Looking for a software engineering internship.</p>
+        <div class="cta">
+          <a class="btn solid" href="#work">See the work</a>
+          <a class="btn" id="ghTop" href="#" target="_blank" rel="noopener">GitHub profile</a>
+        </div>
+      </div>
+      <div class="stage" id="stage" aria-label="Projects, arranged in a ring you can drag to turn">
+        <div class="ring" id="ring"></div>
+        <div class="ring-ctrl">
+          <button type="button" id="prev" aria-label="Previous project">‹</button>
+          <span>Drag the ring, or pick a project</span>
+          <button type="button" id="next" aria-label="Next project">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="workTitle">
+      <div class="sec-title">
+        <h2 id="workTitle">Selected work</h2>
+        <p>Each one started with a specific annoyance. Move your cursor over the drawings; they're built in layers.</p>
+      </div>
+      <div id="work"></div>
+    </section>
+
+    <section id="more" aria-labelledby="moreTitle">
+      <div class="sec-title">
+        <h2 id="moreTitle">Also on GitHub</h2>
+        <p>Smaller builds, coursework and experiments.</p>
+      </div>
+      <ul class="repos" id="repos"><li class="none">Loading repositories…</li></ul>
+      <p class="repo-note" id="repoNote"></p>
+    </section>
+
+    <section aria-labelledby="aboutTitle">
+      <div class="about">
+        <h2 id="aboutTitle">How I work</h2>
+        <div>
+          <p class="big">I like problems where the data is messy and someone is waiting on the answer: crowd reports that lie, policy PDFs that bury the one rule that matters, traffic that has to be turned away fairly.</p>
+          <p>Day to day I write JavaScript and TypeScript with React, Node and Express, and Java with Spring Boot. Data goes into MongoDB, MySQL or Redis. For AI work I build retrieval pipelines: embeddings, vector search, BM25 and fusion, with Gemini or OpenAI behind them. I've also written C++ for systems work and PHP for the gateway, and I ship things in Docker with tests around the parts that matter.</p>
+          <p>Right now I'm getting sharper at data structures and algorithms, Spring Boot, system design and deployment.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <h2 id="contactTitle">Hiring an intern? I'd like to hear about it.</h2>
+    <div class="contact-links" id="contactLinks"></div>
+  </section>
+  <footer>© <span id="year"></span> Sumit Goswami.</footer>
+</div>
+
+<script src="js/projects.js"></script>
+<script src="js/art.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
