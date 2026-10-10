@@ -93,6 +93,23 @@ const ART = {
       </g>
       ${[[64,82,6],[54,58,4],[62,36,3]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" class="s-ink f-none" stroke-width="2" fill="none" opacity=".5"/>`).join("")}`)
   },
+  kernel: {
+    back: svg(`
+      ${[[0,[[0,46],[50,30],[84,58],[146,36],[186,52]]],[1,[[0,22],[26,64],[94,40],[138,60],[202,34]]],[2,[[10,70],[86,24],[114,48],[166,70]]]].map(([r, segs]) => segs.map(([x, w], k) => `<rect x="${34 + x}" y="${46 + r * 30}" width="${w - 4}" height="20" rx="3" class="${(r + k) % 4 === 1 ? "f-accent" : "f-soft"}" opacity="${(r + k) % 4 === 1 ? .7 : 1}"/>`).join("")).join("")}
+      <line x1="30" y1="150" x2="290" y2="150" class="s-line" stroke-width="2"/>
+      ${[0,1,2,3,4,5].map(i => `<rect x="${40 + i * 42}" y="164" width="34" height="24" rx="3" class="f-card s-line" stroke-width="1.5"/>`).join("")}
+      <line x1="196" y1="34" x2="196" y2="196" class="s-ink" stroke-width="2" opacity=".5"/>`),
+    front: svg(`
+      <g transform="translate(160 106)">
+        ${[-30,-15,0,15,30].map(d => `<path d="M${d} -52v-12M${d} 52v12M-52 ${d}h-12M52 ${d}h12" class="s-ink" stroke-width="4" stroke-linecap="round"/>`).join("")}
+        <rect x="-52" y="-52" width="104" height="104" rx="12" class="f-card s-ink" stroke-width="3"/>
+        <path d="M-22 -8a24 24 0 0 1 40 -12" class="s-ink f-none" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M22 8a24 24 0 0 1 -40 12" class="s-ink f-none" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M12 -27l7 7-9 4" class="s-ink f-none" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M-12 27l-7 -7 9 -4" class="s-ink f-none" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="0" cy="0" r="7" class="f-accent"><animate attributeName="opacity" values="1;.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+      </g>`)
+  },
   tree: {
     back: svg(`
       <path d="M56 40v140M56 70h30M56 110h30M56 150h30M100 110v40M100 130h24" class="s-line" stroke-width="2.5" fill="none"/>

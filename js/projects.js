@@ -10,6 +10,18 @@ window.SITE = {
 
 window.PROJECTS = [
   {
+    id: "kernelcraft",
+    repo: "kernelcraft",
+    title: "KernelCraft",
+    line: "An operating-system lab: run a workload, watch the kernel decide, rewind time, and ask why.",
+    problem: "Scheduling, paging, deadlocks and race conditions are the core of every OS course and systems interview, but in a real computer they happen in microseconds and leave no trace. You memorise the theory without ever seeing it go wrong.",
+    built: "A deterministic kernel simulator with an IDE around it. Write a small workload, and it runs tick by tick across up to four cores: FCFS, SJF, SRTF, priority and round-robin scheduling, paging with FIFO, LRU and Clock replacement, per-core TLBs, mutexes and semaphores. It detects deadlocks, stalls and data races on its own, and any run can be scrubbed backwards, branched by killing a thread in the past, and replayed with an identical trace hash. A debugging assistant answers questions from the trace, cites the exact events, and proves each suggested fix by re-running the workload.",
+    hard: "Making it trustworthy. Every tick runs eight fixed phases with explicit tie-breaking, so the textbook examples match exactly (FCFS waits of 0/24/27, SRTF averaging 6.5). Page-replacement choices are checked against an independent oracle on 300 generated reference strings. Lost updates are counted so they always sum to expected minus actual. 116 tests cover the engine, the API against a real PostgreSQL, and Playwright runs of the real UI, which caught two bugs before release.",
+    stack: ["TypeScript", "React", "Canvas", "Fastify", "PostgreSQL", "Docker", "Playwright"],
+    art: "kernel",
+    demo: "https://sumit200531.github.io/demos/kernelcraft/"
+  },
+  {
     id: "neondrift",
     repo: "neon-drift",
     title: "NEON DRIFT",
