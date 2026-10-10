@@ -56,6 +56,43 @@ const ART = {
         <path d="M244 96c14-4 22 2 28 12" class="s-ink" stroke-width="2" fill="none" stroke-linecap="round"/>
       </g>`)
   },
+  car: {
+    back: svg(`
+      <path d="M160 70L20 214M160 70L300 214" class="s-line" stroke-width="3" fill="none"/>
+      ${[0,1,2,3].map(i => { const t = (i + 1) / 4.6, y = 70 + t * t * 150, h = 4 + t * 14; return `<rect x="${(160 - 1.5 - t * 3).toFixed(1)}" y="${y.toFixed(1)}" width="${(3 + t * 6).toFixed(1)}" height="${h.toFixed(1)}" rx="1.5" class="f-soft"/>`; }).join("")}
+      <circle cx="160" cy="58" r="26" class="f-accent" opacity=".22"/>
+      ${[[40,150,60,40],[66,128,34,56],[226,140,50,50],[262,118,34,76]].map(([x, y, w, h]) => `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" rx="2" class="f-soft" opacity=".75"/>`).join("")}
+      ${[[24,40],[300,26],[120,24],[210,38]].map(([x, y]) => `<path d="M${x} ${y + 30}v-${y}" class="s-line" stroke-width="2"/>`).join("")}`),
+    front: svg(`
+      <g transform="translate(160 150)">
+        <ellipse cx="0" cy="40" rx="78" ry="9" class="f-accent" opacity=".25"/>
+        <path d="M-82 18 L-62 -4 L-34 -16 L34 -16 L62 -4 L82 18 L64 30 L-64 30 Z" class="f-card s-ink" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M-30 -16 Q0 -42 30 -16 Z" class="f-glass s-ink" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="-58" y="10" width="116" height="7" rx="3.5" class="f-accent"/>
+        <circle cx="-52" cy="13" r="10" class="f-ink"/><circle cx="52" cy="13" r="10" class="f-ink"/>
+        <circle cx="-52" cy="13" r="5" class="f-accent"/><circle cx="52" cy="13" r="5" class="f-accent"/>
+        <path d="M-90 22h-34M-94 8h-22M90 22h34M94 8h22" class="s-ink" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+      </g>`)
+  },
+  sub: {
+    back: svg(`
+      <path d="M0 196 Q60 182 120 192 T240 188 T320 194 V220 H0Z" class="f-soft"/>
+      <path d="M40 196 Q30 160 46 128 Q58 104 44 80M58 198 Q64 170 54 146M270 194 Q282 158 266 126 Q254 104 268 84" class="s-line" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M118 0 L150 0 L104 196 L64 196 Z M210 0 L232 0 L268 196 L238 196 Z" class="f-soft" opacity=".35"/>
+      <g transform="translate(250 54)"><path d="M-22 0 A22 18 0 0 1 22 0 Z" class="f-soft"/><path d="M-14 2q-3 16 3 30M0 2q3 18-2 34M14 2q-3 16 3 28" class="s-line" stroke-width="2.5" stroke-linecap="round" fill="none"/></g>`),
+    front: svg(`
+      <path d="M196 108 L310 72 L310 150 Z" class="f-accent" opacity=".16"/>
+      <g transform="translate(140 112)">
+        <rect x="-16" y="-48" width="34" height="26" rx="5" class="f-card s-ink" stroke-width="3"/>
+        <path d="M6 -48v-16" class="s-ink" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="0" cy="0" rx="64" ry="30" class="f-card s-ink" stroke-width="3"/>
+        <circle cx="46" cy="-2" r="15" class="f-glass s-ink" stroke-width="3"/>
+        <circle cx="49" cy="-5" r="6" class="f-accent"/>
+        ${[-30,-8,14].map(x => `<circle cx="${x}" cy="4" r="6" class="f-glass s-ink" stroke-width="2.5"/>`).join("")}
+        <path d="M-64 -14 L-84 -26 L-84 26 L-64 14" class="f-card s-ink" stroke-width="3" stroke-linejoin="round"/>
+      </g>
+      ${[[64,82,6],[54,58,4],[62,36,3]].map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" class="s-ink f-none" stroke-width="2" fill="none" opacity=".5"/>`).join("")}`)
+  },
   tree: {
     back: svg(`
       <path d="M56 40v140M56 70h30M56 110h30M56 150h30M100 110v40M100 130h24" class="s-line" stroke-width="2.5" fill="none"/>

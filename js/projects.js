@@ -10,6 +10,54 @@ window.SITE = {
 
 window.PROJECTS = [
   {
+    id: "neondrift",
+    repo: "neon-drift",
+    title: "NEON DRIFT",
+    line: "A cyberpunk hovercar racer in the browser. Drift, boost, and don't touch the walls.",
+    problem: "I wanted to see how far real-time 3D in the browser could go without a game engine or a single downloaded asset, and to build something people would actually want to play rather than another demo.",
+    built: "An endless neon highway through a procedural city. Steer a hovercar at 400+ km/h, drift to charge boost energy, boost for double score, and dodge walls, pylon slaloms, laser gates and sweeping drones. Every model, texture, shader, sound effect and the synthwave soundtrack is generated in code.",
+    hard: "Keeping it fair at speed. Obstacles were first spaced by distance, so at top speed some patterns became impossible to dodge. Spacing them by time instead fixed it, and a bot that steers between lanes survived two minutes at maximum difficulty. The city uses instanced meshes and pooled objects, shaders compile at startup, and the game drops itself to a lighter graphics mode on slow laptops.",
+    stack: ["three.js", "GLSL", "Vite", "Web Audio API", "JavaScript"],
+    art: "car",
+    demo: "https://sumit200531.github.io/neon-drift/"
+  },
+  {
+    id: "abyssal",
+    repo: "abyssal",
+    title: "ABYSSAL",
+    line: "A deep-sea arena shooter. Hold the light, level up, and outlast the Leviathan.",
+    problem: "After a racing game I wanted to build a completely different genre: one with enemy AI, a boss fight and progression, which forces you to think about game balance instead of just visuals.",
+    built: "Pilot a small submarine on a dark ocean floor. Aim with the mouse, fire bolts of light, dash through danger and send out a sonar pulse that stuns everything nearby. Five creature types arrive in waves, with a segmented sea-serpent boss every fifth wave, and each level-up offers three upgrades so every run builds differently.",
+    hard: "Making the sea floor feel alive cheaply: one shader draws animated caustics, the sub's headlight cone, and colored light pools from up to 14 glowing creatures in a single pass. Balancing came from a test bot that plays at full speed; it exposed a crash on the upgrade screen and an XP curve that was far too slow, both fixed before release.",
+    stack: ["three.js", "GLSL", "Vite", "Web Audio API", "JavaScript"],
+    art: "sub",
+    demo: "https://sumit200531.github.io/abyssal/"
+  },
+  {
+    id: "wayfarer",
+    repo: "wayfarer",
+    title: "Wayfarer",
+    line: "A pocket galaxy in the browser. Every bright star has its own planets.",
+    problem: "A side project to learn real-time graphics properly, with real astronomy underneath instead of random sparkles.",
+    built: "About 95,000 stars generated from one seed. Click a star and the camera flies into its solar system. Star colour comes from temperature, the habitable zone from brightness, and planet years from Kepler's third law. You can draw constellations and watch them fall apart from any other angle.",
+    hard: "Custom GLSL shaders that keep stars dense from far away and crisp up close, a camera that tracks a star inside a rotating galaxy, and every planet texture painted on a canvas at runtime.",
+    stack: ["three.js", "WebGL", "GLSL", "JavaScript"],
+    art: "spiral",
+    demo: "https://sumit200531.github.io/wayfarer/"
+  },
+  {
+    id: "queuesense",
+    repo: "queuesense",
+    title: "QueueSense",
+    line: "Live, crowdsourced wait times for hospital OPDs, government offices and banks.",
+    problem: "Maps apps show popular times for malls and cafés, not the wait at a public hospital counter or a transport office, where a wrong guess costs a working person half a day's wages.",
+    built: "People check in when they join a line and check out at the counter. QueueSense turns that into a live wait estimate pushed to everyone viewing the place, and learns each place's weekly rhythm to suggest the quietest hour to go.",
+    hard: "Crowd data lies, so the estimator defends itself: check-ins are geofenced to 500 m, outliers are caught with Median Absolute Deviation, users gain trust when they agree with the crowd, and recent reports count more on a 30-minute half-life. The estimator is a pure, unit-tested module.",
+    stack: ["React", "Node", "Express", "MongoDB", "Socket.io", "JWT"],
+    art: "queue",
+    demo: ""
+  },
+  {
     id: "sds",
     repo: "system-design-simulator",
     title: "System Design Simulator",
@@ -46,18 +94,6 @@ window.PROJECTS = [
     demo: ""
   },
   {
-    id: "queuesense",
-    repo: "queuesense",
-    title: "QueueSense",
-    line: "Live, crowdsourced wait times for hospital OPDs, government offices and banks.",
-    problem: "Maps apps show popular times for malls and cafés, not the wait at a public hospital counter or a transport office, where a wrong guess costs a working person half a day's wages.",
-    built: "People check in when they join a line and check out at the counter. QueueSense turns that into a live wait estimate pushed to everyone viewing the place, and learns each place's weekly rhythm to suggest the quietest hour to go.",
-    hard: "Crowd data lies, so the estimator defends itself: check-ins are geofenced to 500 m, outliers are caught with Median Absolute Deviation, users gain trust when they agree with the crowd, and recent reports count more on a 30-minute half-life. The estimator is a pure, unit-tested module.",
-    stack: ["React", "Node", "Express", "MongoDB", "Socket.io", "JWT"],
-    art: "queue",
-    demo: ""
-  },
-  {
     id: "gateway",
     repo: "API-Gateway-Rate-Limiter-",
     title: "API Gateway",
@@ -68,18 +104,6 @@ window.PROJECTS = [
     stack: ["PHP", "Redis", "MySQL", "JWT", "Docker"],
     art: "gate",
     demo: ""
-  },
-  {
-    id: "wayfarer",
-    repo: "wayfarer",
-    title: "Wayfarer",
-    line: "A pocket galaxy in the browser. Every bright star has its own planets.",
-    problem: "A side project to learn real-time graphics properly, with real astronomy underneath instead of random sparkles.",
-    built: "About 95,000 stars generated from one seed. Click a star and the camera flies into its solar system. Star colour comes from temperature, the habitable zone from brightness, and planet years from Kepler's third law. You can draw constellations and watch them fall apart from any other angle.",
-    hard: "Custom GLSL shaders that keep stars dense from far away and crisp up close, a camera that tracks a star inside a rotating galaxy, and every planet texture painted on a canvas at runtime.",
-    stack: ["three.js", "WebGL", "GLSL", "JavaScript"],
-    art: "spiral",
-    demo: "https://sumit200531.github.io/wayfarer/"
   },
   {
     id: "unfold",
