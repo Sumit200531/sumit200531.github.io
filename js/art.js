@@ -110,6 +110,20 @@ const ART = {
         <circle cx="0" cy="0" r="7" class="f-accent"><animate attributeName="opacity" values="1;.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
       </g>`)
   },
+  khata: {
+    back: svg(`
+      <rect x="62" y="24" width="196" height="176" rx="6" class="f-card s-line" stroke-width="2"/>
+      <path d="M92 24v176M98 24v176" class="s-ink" stroke-width="1.5" opacity=".35"/>
+      ${[0,1,2,3,4,5].map(i => `<path d="M108 ${56 + i * 24}h134" class="s-line" stroke-width="2"/>`).join("")}
+      ${[[118,52,60],[118,76,44],[118,100,70],[118,124,52],[118,148,38]].map(([x, y, w]) => `<rect x="${x}" y="${y - 10}" width="${w}" height="7" rx="3" class="f-soft"/>`).join("")}
+      ${[52,76,100,124,148].map((y, i) => `<rect x="${i === 3 ? 206 : 214}" y="${y - 10}" width="${i === 3 ? 30 : 22}" height="7" rx="3" class="${i === 1 ? "f-accent" : "f-soft"}" opacity="${i === 1 ? .8 : 1}"/>`).join("")}`),
+    front: svg(`
+      <g transform="translate(206 140)">
+        <circle r="44" class="f-accent"/>
+        <circle r="36" class="s-paper" stroke-width="3" fill="none" opacity=".7"/>
+        <text x="0" y="17" text-anchor="middle" class="t-big" style="font-size:48px;fill:#fff">₹</text>
+      </g>`)
+  },
   tree: {
     back: svg(`
       <path d="M56 40v140M56 70h30M56 110h30M56 150h30M100 110v40M100 130h24" class="s-line" stroke-width="2.5" fill="none"/>

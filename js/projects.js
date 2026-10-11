@@ -10,6 +10,18 @@ window.SITE = {
 
 window.PROJECTS = [
   {
+    id: "hisaab",
+    repo: "hisaab",
+    title: "Hisaab",
+    line: "उधार का पक्का हिसाब: a free, offline credit ledger for kirana shops and dairies.",
+    problem: "Most small shops in India still give goods on credit and track it in a red cloth register, or in memory. Entries get forgotten, customers argue about what is owed, and asking for money is awkward. Existing apps want an account, a good network and a newer phone.",
+    built: "An installable app for the cheapest Android phone, Hindi-first with English. Record udhaar in three taps on a big calculator keypad, or say it in one line: \"रमेश साढ़े चार सौ\" becomes Ramesh, ₹450. One tap sends a WhatsApp reminder with a link to a pay page that opens any UPI app for the exact amount. It works with no internet, backs up to WhatsApp as an encrypted file, and can keep two phones (the counter and the owner) in sync.",
+    hard: "Two phones editing offline must always agree, with money exact to the paisa. The khata is an operation-based CRDT ordered by hybrid logical clocks, so any delivery order converges; randomized tests run 60 three-phone histories and assert identical state. Sync uses version vectors and is idempotent over flaky 2G. Everything is encrypted on the phone with AES-256-GCM keys derived from a 120-bit code, so the relay stores only ciphertext it cannot read, forge or reorder. A parser understands डेढ़ सौ, ढाई हज़ार and सवा लाख. 157 tests, including Playwright runs of two phones syncing and the app launching offline.",
+    stack: ["TypeScript", "React PWA", "IndexedDB", "CRDT", "WebCrypto", "Fastify", "PostgreSQL"],
+    art: "khata",
+    demo: "https://sumit200531.github.io/hisaab/"
+  },
+  {
     id: "kernelcraft",
     repo: "kernelcraft",
     title: "KernelCraft",
