@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sumit Goswami</title>
-<meta name="description" content="Sumit Goswami: full stack and backend developer. KernelCraft, Hisaab, ClauseLens, NEON DRIFT and more.">
+<meta name="description" content="Sumit Goswami: full stack and backend developer. KernelCraft, Hisaab, ClauseLens, whyline, NEON DRIFT and more.">
 <meta property="og:title" content="Sumit Goswami: Software Developer">
-<meta property="og:description" content="Full stack and backend developer. 13 projects: OS simulators, RAG, offline-first apps and WebGL games.">
+<meta property="og:description" content="Full stack and backend developer. 14 projects: OS simulators, RAG, data tools, offline-first apps and WebGL games.">
 <meta name="theme-color" content="#0E0F24">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FF7AA8'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%231A0A12' font-family='sans-serif'%3E%E3%82%B9%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -414,7 +414,7 @@ window.SITE = {
 };
 
 window.SKILLS = [
-  { name:"Languages", jp:"言語", items:["TypeScript","JavaScript","Java","C++","PHP","SQL"] },
+  { name:"Languages", jp:"言語", items:["TypeScript","JavaScript","Python","Java","C++","PHP","SQL"] },
   { name:"Frontend", jp:"フロント", items:["React","Vite","three.js","WebGL / GLSL","React Flow"] },
   { name:"Backend", jp:"バックエンド", items:["Node.js","Express","Fastify","Spring Boot","Socket.io","JWT"] },
   { name:"Data & AI", jp:"データ", items:["PostgreSQL","MongoDB","MySQL","Redis","RAG","Ollama"] }
@@ -442,6 +442,11 @@ window.PROJECTS = [
     why:"A fast 3D racer where every model, shader and sound is made in code.",
     points:["Procedural obstacle patterns whose spacing scales with speed","Instanced city, pooled objects, shaders precompiled to avoid hitches","Auto quality drop below 40 fps; engine hum synthesized with Web Audio"],
     stack:["three.js","WebGL 2","Web Audio","Vite"], art:"drift", demo:"" },
+  { id:"whyline", repo:"whyline", title:"whyline", cat:"Data",
+    line:"Explains where a metric change came from, like a sudden conversion drop.",
+    why:"Dashboards show that a number moved, not which segment moved it.",
+    points:["Exact Shapley split of each segment into mix shift vs rate change","Noise gate: z-scores with Bonferroni-corrected t threshold","72% F1 vs 45% for a top-movers baseline on a planted-incident benchmark"],
+    stack:["Python","pandas","numpy","pytest"], art:"waterfall", demo:"https://sumit200531.github.io/whyline/demo.html" },
   { id:"sysdesign", repo:"system-design-simulator", title:"System Design Simulator", cat:"Dev tools",
     line:"Design a distributed system, load it, break it, then fix it.",
     why:"System design is usually learned from diagrams that never fail.",
@@ -491,7 +496,7 @@ window.PROJECTS = [
 
 // Flagship projects get the S-rank stamp; "tested" feeds the stats strip.
 window.FLAGSHIP = ["kernelcraft", "hisaab", "clauselens", "neondrift"];
-window.TESTED = ["kernelcraft", "hisaab", "sysdesign", "timemachine", "queuesense"];
+window.TESTED = ["kernelcraft", "hisaab", "sysdesign", "timemachine", "queuesense", "whyline"];
 
 // Special moves: a strength + the projects that prove it.
 window.MOVES = [
@@ -504,9 +509,9 @@ window.MOVES = [
   { name:"Offline Sync Barrier", jp:"同期結界", el:"結", c:"--sun",
     text:"Offline-first apps with conflict-free sync, end-to-end encryption and exact money handling.",
     proof:["hisaab"] },
-  { name:"Real-Time Pulse", jp:"即時通信", el:"即", c:"--accent-2",
-    text:"Live updates over WebSockets and SSE, with estimators that stay accurate when crowd data is noisy.",
-    proof:["queuesense","clauselens"] },
+  { name:"Root-Cause Radar", jp:"原因探知", el:"探", c:"--accent-2",
+    text:"Statistics on messy, noisy data: Shapley attribution, outlier filtering and benchmarks against baselines.",
+    proof:["whyline","queuesense"] },
   { name:"60 FPS Overdrive", jp:"超加速", el:"速", c:"--accent",
     text:"Custom GLSL, instancing, object pools and auto quality scaling to keep 3D games smooth.",
     proof:["neondrift","abyssal","wayfarer"] },
@@ -529,6 +534,8 @@ const svg = i => `<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice
 const lines = (x,y,w,n,g) => Array.from({length:n},(_,i)=>`<rect x="${x}" y="${y+i*g}" width="${w*(i%3===2?.6:i%2?.85:1)}" height="3" rx="1.5" class="f-soft"/>`).join("");
 const rnd = (seed => () => (seed = (seed*9301+49297)%233280)/233280)(17);
 window.ART = {
+  waterfall:{ back:svg(`<line x1="30" y1="190" x2="290" y2="190" class="s-line" stroke-width="2"/>${[0,1,2,3,4].map(i=>`<line x1="${70+i*46}" y1="40" x2="${70+i*46}" y2="190" class="s-line" stroke-width="1" stroke-dasharray="3 5"/>`).join("")}`),
+    front:svg(`<rect x="40" y="50" width="30" height="140" rx="3" class="f-sky"/>${[[86,50,34,"f-accent"],[132,84,22,"f-accent"],[178,106,12,"f-sun"],[224,118,8,"f-accent"]].map(([x,y,h,f],i)=>`<rect x="${x}" y="${y}" width="30" height="${h}" rx="3" class="${f}"><animate attributeName="height" values="0;${h};${h}" dur="3.2s" begin="${i*.2}s" repeatCount="indefinite"/></rect>`).join("")}<rect x="270" y="126" width="30" height="64" rx="3" class="f-sky"/><path d="M70 50H86M116 84H132M162 106H178M208 118H224M254 126H270" class="s-ink" stroke-width="1.5"/>`) },
   drift:{ back:svg(`<path d="M0 220L150 96H170L320 220Z" class="f-soft" opacity=".5"/>${[0,1,2,3,4,5].map(i=>`<rect x="${20+i*50}" y="${96-30-((i*37)%40)}" width="28" height="${30+((i*37)%40)}" class="f-card s-sky" stroke-width="1.5"/>`).join("")}<line x1="0" y1="96" x2="320" y2="96" class="s-accent" stroke-width="2"/>`),
     front:svg(`<path d="M150 96L40 220M170 96L280 220" class="s-accent" stroke-width="3"/>${[0,1,2,3].map(i=>`<rect x="158" width="4" height="14" class="f-sun"><animate attributeName="y" values="96;230" dur="1.2s" begin="${i*.3}s" repeatCount="indefinite"/><animate attributeName="height" values="4;30" dur="1.2s" begin="${i*.3}s" repeatCount="indefinite"/></rect>`).join("")}<g><animateTransform attributeName="transform" type="translate" values="-30 0;30 0;-30 0" dur="3s" repeatCount="indefinite"/><path d="M134 186l26-16 26 16-6 10h-40z" class="f-card s-ink" stroke-width="2.5"/><rect x="138" y="196" width="44" height="5" rx="2" class="f-sky"/><path d="M140 202l-14 14M180 202l14 14" class="s-accent" stroke-width="3" stroke-linecap="round" opacity=".7"/></g>`) },
   ledger:{ back:svg(`<rect x="70" y="34" width="180" height="160" rx="6" class="f-card s-line" stroke-width="2"/><line x1="100" y1="34" x2="100" y2="194" class="s-accent" stroke-width="2" opacity=".6"/>${[0,1,2,3,4,5].map(i=>`<line x1="70" y1="${62+i*22}" x2="250" y2="${62+i*22}" class="s-line" stroke-width="1"/><rect x="110" y="${50+i*22}" width="${60+(i*29)%50}" height="4" rx="2" class="f-soft"/><rect x="210" y="${50+i*22}" width="28" height="4" rx="2" class="${i===2?"f-accent":"f-soft"}"/>`).join("")}`),
