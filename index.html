@@ -414,7 +414,7 @@ window.SITE = {
 };
 
 window.SKILLS = [
-  { name:"Languages", jp:"言語", items:["TypeScript","JavaScript","Python","Java","C++","PHP","SQL"] },
+  { name:"Languages", jp:"言語", items:["TypeScript","JavaScript","Python","Java","C++","PHP","SQL","GDScript"] },
   { name:"Frontend", jp:"フロント", items:["React","Vite","three.js","WebGL / GLSL","React Flow"] },
   { name:"Backend", jp:"バックエンド", items:["Node.js","Express","Fastify","Spring Boot","Socket.io","JWT"] },
   { name:"Data & AI", jp:"データ", items:["PostgreSQL","MongoDB","MySQL","Redis","RAG","Ollama"] }
@@ -442,6 +442,11 @@ window.PROJECTS = [
     why:"A fast 3D racer where every model, shader and sound is made in code.",
     points:["Procedural obstacle patterns whose spacing scales with speed","Instanced city, pooled objects, shaders precompiled to avoid hitches","Auto quality drop below 40 fps; engine hum synthesized with Web Audio"],
     stack:["three.js","WebGL 2","Web Audio","Vite"], art:"drift", demo:"" },
+  { id:"phantom", repo:"project-phantom", title:"Project Phantom", cat:"Games & 3D",
+    line:"A 5v5 tactical shooter in Godot 4: plant, defuse and outplay smart bots.",
+    why:"Building a Valorant-style round shooter end to end, with no bought assets.",
+    points:["Bots with navmesh, line-of-sight and sound perception, cover and retakes","Team-only energy barrier, smoke that blocks AI vision, wall-piercing recon pulse","Headless autotests play full matches; every texture and sound generated in code"],
+    stack:["Godot 4","GDScript","GLSL","Python"], art:"tactical", demo:"" },
   { id:"whyline", repo:"whyline", title:"whyline", cat:"Data",
     line:"Explains where a metric change came from, like a sudden conversion drop.",
     why:"Dashboards show that a number moved, not which segment moved it.",
@@ -495,8 +500,8 @@ window.PROJECTS = [
 ];
 
 // Flagship projects get the S-rank stamp; "tested" feeds the stats strip.
-window.FLAGSHIP = ["kernelcraft", "hisaab", "clauselens", "neondrift"];
-window.TESTED = ["kernelcraft", "hisaab", "sysdesign", "timemachine", "queuesense", "whyline"];
+window.FLAGSHIP = ["kernelcraft", "hisaab", "clauselens", "neondrift", "phantom"];
+window.TESTED = ["kernelcraft", "hisaab", "sysdesign", "timemachine", "queuesense", "whyline", "phantom"];
 
 // Special moves: a strength + the projects that prove it.
 window.MOVES = [
@@ -513,8 +518,8 @@ window.MOVES = [
     text:"Statistics on messy, noisy data: Shapley attribution, outlier filtering and benchmarks against baselines.",
     proof:["whyline","queuesense"] },
   { name:"60 FPS Overdrive", jp:"超加速", el:"速", c:"--accent",
-    text:"Custom GLSL, instancing, object pools and auto quality scaling to keep 3D games smooth.",
-    proof:["neondrift","abyssal","wayfarer"] },
+    text:"Custom shaders, batching, object pools and quality presets to keep 3D games smooth, in three.js and Godot.",
+    proof:["phantom","neondrift","abyssal","wayfarer"] },
   { name:"Iron Wall Backend", jp:"鉄壁", el:"鉄", c:"--sun",
     text:"Rate limiting, token rotation, untrusted-input hardening and thread-safe C++.",
     proof:["gateway","timemachine","backup"] }
@@ -534,6 +539,8 @@ const svg = i => `<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice
 const lines = (x,y,w,n,g) => Array.from({length:n},(_,i)=>`<rect x="${x}" y="${y+i*g}" width="${w*(i%3===2?.6:i%2?.85:1)}" height="3" rx="1.5" class="f-soft"/>`).join("");
 const rnd = (seed => () => (seed = (seed*9301+49297)%233280)/233280)(17);
 window.ART = {
+  tactical:{ back:svg(`<rect x="30" y="26" width="260" height="168" rx="6" class="f-card s-line" stroke-width="2"/><path d="M30 80H120V140H200V80H290M120 26V80M200 140V194M160 26V60" class="s-line" stroke-width="2" fill="none"/><text x="62" y="74" class="t-big" font-size="22" opacity=".35">A</text><text x="232" y="166" class="t-big" font-size="22" opacity=".35">B</text>${[0,1,2,3,4].map(i=>`<path d="M${206+i*7} 92v40" class="s-sky" stroke-width="2" opacity=".55"/>`).join("")}`),
+    front:svg(`<g transform="translate(160 110)"><circle r="44" class="s-ink" stroke-width="3" fill="none" stroke-dasharray="20 12"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="10s" repeatCount="indefinite"/></circle><path d="M0 -30V-12M0 12V30M-30 0H-12M12 0H30" class="s-accent" stroke-width="4" stroke-linecap="round"/><circle r="4" class="f-accent"><animate attributeName="r" values="3;6;3" dur="1.2s" repeatCount="indefinite"/></circle></g><g transform="translate(84 112)"><circle r="12" class="f-sun s-ink" stroke-width="2.5"/><circle r="12" stroke="var(--sun)" stroke-width="2" fill="none"><animate attributeName="r" values="12;30" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="1.6s" repeatCount="indefinite"/></circle></g><circle cx="250" cy="66" r="7" class="f-accent"><animate attributeName="opacity" values="1;.2;1" dur="1s" repeatCount="indefinite"/></circle>`) },
   waterfall:{ back:svg(`<line x1="30" y1="190" x2="290" y2="190" class="s-line" stroke-width="2"/>${[0,1,2,3,4].map(i=>`<line x1="${70+i*46}" y1="40" x2="${70+i*46}" y2="190" class="s-line" stroke-width="1" stroke-dasharray="3 5"/>`).join("")}`),
     front:svg(`<rect x="40" y="50" width="30" height="140" rx="3" class="f-sky"/>${[[86,50,34,"f-accent"],[132,84,22,"f-accent"],[178,106,12,"f-sun"],[224,118,8,"f-accent"]].map(([x,y,h,f],i)=>`<rect x="${x}" y="${y}" width="30" height="${h}" rx="3" class="${f}"><animate attributeName="height" values="0;${h};${h}" dur="3.2s" begin="${i*.2}s" repeatCount="indefinite"/></rect>`).join("")}<rect x="270" y="126" width="30" height="64" rx="3" class="f-sky"/><path d="M70 50H86M116 84H132M162 106H178M208 118H224M254 126H270" class="s-ink" stroke-width="1.5"/>`) },
   drift:{ back:svg(`<path d="M0 220L150 96H170L320 220Z" class="f-soft" opacity=".5"/>${[0,1,2,3,4,5].map(i=>`<rect x="${20+i*50}" y="${96-30-((i*37)%40)}" width="28" height="${30+((i*37)%40)}" class="f-card s-sky" stroke-width="1.5"/>`).join("")}<line x1="0" y1="96" x2="320" y2="96" class="s-accent" stroke-width="2"/>`),
